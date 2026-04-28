@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laundry Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>🧺 Laundry Order Management System</h1>
+
+  <!-- Create Order Section -->
+  <section>
+    <h2>Create Order</h2>
+
+    <input type="text" id="customerName" placeholder="Customer Name">
+    <input type="text" id="phone" placeholder="Phone Number">
+
+    <div class="garment-controls">
+      <select id="garmentType">
+        <option value="Shirt">Shirt</option>
+        <option value="Pants">Pants</option>
+        <option value="Saree">Saree</option>
+        <option value="TShirt">T-Shirt</option>
+        <option value="Jacket">Jacket</option>
+        <option value="Bedsheet">Bedsheet</option>
+      </select>
+
+      <input type="number" id="quantity" placeholder="Quantity" min="1">
+
+      <button type="button" onclick="addGarment()">Add Garment</button>
+    </div>
+
+    <h3>Current Order Cart</h3>
+    <div id="cart"></div>
+
+    <button class="final-btn" onclick="createOrder()">Create Final Order</button>
+  </section>
+
+  <!-- Orders Section -->
+   <section>
+  <h2>All Orders</h2>
+
+  <input type="text" id="searchInput" placeholder="Search by Customer or Phone">
+
+  <select id="statusFilter">
+    <option value="">All Statuses</option>
+    <option value="RECEIVED">RECEIVED</option>
+    <option value="PROCESSING">PROCESSING</option>
+    <option value="READY">READY</option>
+    <option value="DELIVERED">DELIVERED</option>
+  </select>
+
+  <button onclick="getOrders()">Load Orders</button>
+
+  <div id="ordersList"></div>
+</section>
+
+  <!-- Dashboard Section -->
+  <section>
+    <h2>Dashboard</h2>
+    <button onclick="getDashboard()">Load Dashboard</button>
+    <div id="dashboardData"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
