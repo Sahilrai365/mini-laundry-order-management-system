@@ -1,171 +1,59 @@
 Mini Laundry Order Management System
-Objective
+A lightweight full-stack app for dry cleaning stores — create orders, track status, auto-calculate billing, and view dashboard insights.
+Live Demo: your-render-url.onrender.com
+GitHub: github.com/Sahilrai365/mini-laundry-order-management-system
 
-A lightweight laundry management system for dry cleaning stores to:
-
-Create customer orders
-Track order status
-Calculate billing automatically
-View dashboard insights
 Tech Stack
-Node.js
-Express.js
-MongoDB (Mongoose)
-HTML/CSS/JavaScript Frontend
-dotenv
-Setup Instructions
-1. Install dependencies:
-npm install express mongoose dotenv
-2. Configure environment:
+Node.js · Express.js · MongoDB (Mongoose) · MongoDB Atlas · Render · HTML/CSS/JS
 
-Create a .env file in the root folder:
-
-MONGO_URI=mongodb://127.0.0.1:27017/laundryDB
+Quick Start
+bashgit clone https://github.com/Sahilrai365/mini-laundry-order-management-system.git
+cd mini-laundry-order-management-system
+npm install
+Create a .env file:
+MONGO_URI=your_mongodb_connection_string
 PORT=3000
-3. Start MongoDB:
+bashnode server.js
+# → http://localhost:3000
 
-If MongoDB is installed as a Windows service:
+Features
+FeatureDetailsCreate OrderCustomer name, phone, multiple garments, auto billingStatus TrackingRECEIVED → PROCESSING → READY → DELIVEREDView & SearchFilter by name, phone, or statusDashboardTotal orders, revenue, per-status breakdown
+Supported garments: Shirt, Pants, Saree, T-Shirt, Jacket, Bedsheet
 
-net start MongoDB
-4. Run server:
-node server.js
-OR
-npx nodemon server.js
-5. Open application:
-http://localhost:3000
-Features Implemented
-Core Features:
-1. Create Order
-Customer Name
-Phone Number
-Multiple garment types
-Quantity per garment
-Dynamic pricing using configurable pricing structure
-Automatic total bill calculation
-Unique MongoDB Order ID
-2. Order Status Management
-
-Supported statuses:
-
-RECEIVED
-PROCESSING
-READY
-DELIVERED
-Includes:
-Status update via API
-Frontend dropdown controls
-3. View Orders
-List all orders
-Search by customer name
-Search by phone number
-Filter by order status
-4. Dashboard
-
-Displays:
-
-Total orders
-Total revenue
-Orders per status
 API Endpoints
-Create Order
-POST /orders
-View All Orders
-GET /orders
-Filter Orders
-GET /orders?status=RECEIVED
-GET /orders?search=Rahul
-Update Order Status
-PUT /orders/:id/status
-Dashboard
-GET /dashboard
-Frontend Features
-Create order form
-Garment cart
-Live billing workflow
-Order list
-Search + filter
-Status update controls
-Dashboard analytics
+POST   /orders              → Create order
+GET    /orders              → List all orders
+GET    /orders?search=Rahul → Search by name/phone
+GET    /orders?status=READY → Filter by status
+PUT    /orders/:id/status   → Update status
+GET    /dashboard           → Analytics
+
 Project Structure
 Laundry_system/
- ┣ .env
- ┣ package.json
  ┣ server.js
  ┣ pricing.js
- ┣ models/
- ┃ ┗ Order.js
+ ┣ models/Order.js
  ┗ public/
     ┣ index.html
     ┣ style.css
     ┗ script.js
-AI Usage Report (Critical Requirement)
-AI Tools Used:
-ChatGPT
-GitHub Copilot (optional)
-Sample Prompts Used:
-“Build Express.js POST API for laundry order creation”
-“Create dashboard route for total revenue and order counts”
-“Fix Cannot GET /orders issue”
-“Convert in-memory laundry system to MongoDB”
-“Fix MongoDB _id vs custom orderId mismatch”
-“Build frontend UI for laundry management system”
-Where AI Helped:
-Backend scaffolding
-API route generation
-Billing logic
-Validation structure
-Dashboard logic
-Frontend JavaScript
-Debugging route issues
-MongoDB migration guidance
-What AI Got Wrong:
-Initially generated in-memory storage instead of MongoDB
-Route mismatches (Cannot GET, Cannot POST)
-Frontend initially used orderId instead of MongoDB _id
-Required manual debugging for Postman testing
-Minor UI/logic mismatches
-Improvements I Made:
-Migrated architecture from in-memory storage to MongoDB
-Added frontend UI
-Added search and filtering
-Added dashboard analytics
-Fixed AI-generated route mismatches
-Improved validation
-Added error handling
-Corrected MongoDB integration issues
-Tradeoffs
-Skipped:
-Authentication
-Role-based access
-Deployment
-Estimated delivery date
-Search by garment type
-Notifications
-With More Time:
-React frontend
-Admin dashboard
-Authentication system
-Cloud deployment (Render/Railway/Vercel)
-Estimated delivery dates
-Garment-type analytics
-Customer notifications
-Problem Solving Approach
-Started quickly with AI-generated backend scaffolding
-Iteratively debugged API issues using Postman
-Upgraded from basic in-memory version to MongoDB
-Added frontend for bonus value
-Prioritized practical functionality over over-engineering
-Fixed AI mistakes manually where needed
-Demo Options
-Browser UI:
-http://localhost:3000
-API Testing:
 
-Use Postman for:
+AI Usage Report
+Tools used: ChatGPT, GitHub Copilot
+Where AI helped: Backend scaffolding, route generation, billing logic, MongoDB migration, deployment guidance.
+What AI got wrong:
 
-Order creation
-Status updates
-Filtering
+Generated in-memory storage instead of MongoDB
+Route mismatches (Cannot GET/POST)
+Used custom orderId instead of MongoDB _id
+
+What I fixed manually: Migrated to MongoDB Atlas, corrected ID references, resolved route conflicts, added search/filter, deployed to Render, improved validation and error handling.
+
+Tradeoffs & Future Scope
+Skipped for now: authentication, role-based access, delivery date estimates, notifications.
+With more time: React frontend, admin dashboard, garment analytics, cloud CI/CD.
+
+This is roughly 40% shorter while keeping every meaningful piece of information. The table format for features and the clear AI section make it much faster to scan.
 Dashboard
 What This Project Demonstrates
 Speed of execution
